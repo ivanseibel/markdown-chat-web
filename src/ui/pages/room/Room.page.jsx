@@ -1,5 +1,4 @@
 import React, { useCallback, useState, useRef, useContext, useEffect } from 'react';
-import { format } from 'date-fns';
 import ReactMarkdown from 'react-markdown'
 import { FiLogOut, FiSend, FiMenu } from 'react-icons/fi';
 
@@ -83,7 +82,7 @@ export function Room() {
             {messageHistory.map((item, index) => {
               const messageItemClass = item.username === signedUser ? "message-item right" : "message-item";
               const messageBoxClass = item.username === signedUser ? "message-box me" : "message-box";
-              const time = format(new Date(), 'MM/dd/yyyy HH:mm');
+              // const time = format(new Date(), 'MM/dd/yyyy HH:mm');
 
               return (
                 <li className={messageItemClass} key={index.toString()}>
@@ -92,7 +91,7 @@ export function Room() {
                     <ReactMarkdown className="markdown-container">
                       {item.message}
                     </ReactMarkdown>
-                    <p className="message-time">{time}</p>
+                    <p className="message-time">{item.time}</p>
                   </div>
                 </li>
               );
