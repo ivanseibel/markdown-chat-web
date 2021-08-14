@@ -6,9 +6,11 @@ import { FiLogOut, FiSend, FiMenu } from 'react-icons/fi';
 import { RoomContext } from '../../../context';
 
 import './styles.css';
+import { useMemo } from 'react';
 
 export function Room() {
   const [message, setMessage] = useState('');
+  const [showUsers, setShowMenu] = useState(true);
   const {
     isConnected,
     handleSendMessage,
@@ -25,6 +27,15 @@ export function Room() {
     messageContainer.scrollTop = messageContainer.scrollHeight;
   }, [messageHistory]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      const { innerWidth } = window;
+      setShowMenu(innerWidth > 600);
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleOnChange = useCallback((e) => {
     setMessage(e.target.value);
@@ -46,28 +57,30 @@ export function Room() {
         </div>
         <div className="leave-room-div">
           <div className="leave-room-button-container">
-            <input
+            <button
               type="button"
-              value="Leave"
               id="chat-connect"
               onClick={handleConnect}
               className="leave-room-button"
-            />
-            <FiLogOut className="logout-icon" size={20} />
+            >
+              <FiLogOut className="logout-icon" size={20} />
+            </button>
           </div>
         </div>
       </div>
       <div className="message-container">
-        <div className="users-list-container">
+        <div className={showUsers ? 'users-list-container' : 'hide-menu'}>
           <ul className="layout-list">
             {usersList.map((item, index) => (
               <li className="username-list-item" key={index.toString()}>{item.username}</li>
             ))}
           </ul>
         </div>
-        <div className="message-list-container">
+        <div className={showUsers ? "message-list-container" : "message-list-container expand-message-list-container"}>
           <div className="message-list-container-header" >
-            <FiMenu className="menu-icon" size={20} />
+            <button onClick={() => { setShowMenu(state => !state) }} >
+              <FiMenu className="menu-icon" size={20} />
+            </button>
           </div>
           <ul className="layout-list" id="messages-container">
             {messageHistory.map((item, index) => {
@@ -96,7 +109,6 @@ export function Room() {
         <div className="chat-room-message-container">
           <textarea
             ref={messageInputRef}
-            // contentEditable="true"
             onChange={handleOnChange}
             value={message}
             id="chat-message-input"
@@ -107,9 +119,9 @@ export function Room() {
         </div>
         <div className="chat-room-send-button-container">
           <div className="send-message-button-container" >
-            <input
+            <button
               type="button"
-              value="Send"
+              value=""
               id="chat-message-submit"
               title="Press Ctrl+Enter to send"
               onClick={() => {
@@ -119,8 +131,9 @@ export function Room() {
               }}
               disabled={!isConnected}
               className="send-message-button"
-            />
-            <FiSend className="send-icon" size={20} />
+            >
+              <FiSend className="send-icon" size={20} />
+            </button>
           </div>
         </div>
       </div>
