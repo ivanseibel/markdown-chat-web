@@ -1,7 +1,7 @@
-import React, { useCallback, useState, useMemo, useRef, useContext, useEffect } from 'react';
+import React, { useCallback, useState, useRef, useContext, useEffect } from 'react';
 import { format } from 'date-fns';
 import ReactMarkdown from 'react-markdown'
-import { FiLogOut, FiSend } from 'react-icons/fi';
+import { FiLogOut, FiSend, FiMenu } from 'react-icons/fi';
 
 import { RoomContext } from '../../../context';
 
@@ -21,7 +21,7 @@ export function Room() {
   const messageInputRef = useRef(null);
 
   useEffect(() => {
-    const messageContainer = document.getElementsByClassName('message-list-container')[0];
+    const messageContainer = document.getElementById('messages-container');
     messageContainer.scrollTop = messageContainer.scrollHeight;
   }, [messageHistory]);
 
@@ -66,7 +66,10 @@ export function Room() {
           </ul>
         </div>
         <div className="message-list-container">
-          <ul className="layout-list">
+          <div className="message-list-container-header" >
+            <FiMenu className="menu-icon" size={20} />
+          </div>
+          <ul className="layout-list" id="messages-container">
             {messageHistory.map((item, index) => {
               const messageItemClass = item.username === signedUser ? "message-item right" : "message-item";
               const messageBoxClass = item.username === signedUser ? "message-box me" : "message-box";
