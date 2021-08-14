@@ -28,8 +28,7 @@ export function Home() {
   return (
     <div className="main">
       <div>
-        {/* <h1 className="login-title">Markdown Chat</h1> */}
-        <img src={logo} alt="" />
+        <img src={logo} alt="logo" className="logo" />
         <input
           onChange={handleOnChange}
           value={username}
