@@ -6,7 +6,6 @@ import { FiLogOut, FiSend, FiMenu } from 'react-icons/fi';
 import { RoomContext } from '../../../context';
 
 import './styles.css';
-import { useMemo } from 'react';
 
 export function Room() {
   const [message, setMessage] = useState('');
