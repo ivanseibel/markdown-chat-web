@@ -89,11 +89,9 @@ export function Room() {
                 <li className={messageItemClass} key={index.toString()}>
                   <strong>{item.username}</strong>
                   <div className={messageBoxClass}>
-                    <p>
-                      <ReactMarkdown>
-                        {item.message}
-                      </ReactMarkdown>
-                    </p>
+                    <ReactMarkdown className="markdown-container">
+                      {item.message}
+                    </ReactMarkdown>
                     <p className="message-time">{time}</p>
                   </div>
                 </li>
