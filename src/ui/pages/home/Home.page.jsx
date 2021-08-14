@@ -26,40 +26,40 @@ export function Home() {
 
   return (
     <div className="main">
-      <h1 className="login-title">Markdown Chat</h1>
-      <input
-        onChange={handleOnChange}
-        value={username}
-        type="text"
-        id="chat-username-input"
-        size="39"
-        autoFocus
-        placeholder="username"
-        disabled={isConnected}
-        className="fields"
-      />
-      <br /><br />
-      <input
-        onChange={handleOnChange}
-        value={room}
-        type="text"
-        id="chat-room-input"
-        size="39"
-        placeholder="room"
-        disabled={isConnected}
-        className="fields"
-      />
-      <br /><br />
-      <div className="enter-room-button-container">
+      <div>
+        <h1 className="login-title">Markdown Chat</h1>
         <input
+          onChange={handleOnChange}
+          value={username}
+          type="text"
+          id="chat-username-input"
+          size="39"
+          autoFocus
+          placeholder="username"
+          disabled={isConnected}
+          className="fields"
+        />
+        <input
+          onChange={handleOnChange}
+          value={room}
+          type="text"
+          id="chat-room-input"
+          size="39"
+          placeholder="room"
+          disabled={isConnected}
+          className="fields"
+        />
+        <button
           type="button"
-          value="Enter Room"
+          value=""
           id="chat-connect"
           onClick={() => { handleConnect(username, room) }}
           disabled={username.length === 0 || room.length === 0}
           className="enter-room-button"
-        />
-        <FiLogIn className="logout-icon" size={20} />
+        >
+          <span>Enter Room</span>
+          <FiLogIn className="logout-icon" size={20} />
+        </button>
       </div>
 
     </div>

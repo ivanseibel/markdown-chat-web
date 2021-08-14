@@ -26,34 +26,21 @@ div.leave-room-div {
   justify-content: flex-end;
 }
 
-div.leave-room-button-container {
+.leave-room-button {
   display: flex;
-  justify-content: center;
-  align-items: center;
-
-  padding: 5px 10px;
-  background-color: #BC3325;
-  height: 50px;
-  border-radius: 4px;
-  width: 50px;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-div.leave-room-button-container:hover {
-  opacity: 0.7;
-}
-
-button.leave-room-button {
-  font-size: 16px;
   border: none;
-  color: white;
-  font-weight: 700;
+  border-radius: 4px;
   background-color: #BC3325;
   cursor: pointer;
-  height: 40px;
-  display: flex;
   align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  transition: 0.3s;
+}
+
+.leave-room-button:hover {
+  opacity: 0.7;
 }
 
 svg.logout-icon {
@@ -205,7 +192,7 @@ div.chat-room-send-button-container {
   display: flex;
 }
 
-div.send-message-button-container {
+/* div.send-message-button-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -218,20 +205,27 @@ div.send-message-button-container {
   cursor: pointer;
 }
 
-div.send-message-button-container:hover {
+.send-message-button-container:hover {
+  opacity: 0.7;
+} */
+
+.send-message-button {
+  border: none;
+  background-color: #283618;
+  display: flex;
+  width: 50px; 
+  height: 50px;
+  border-radius: 4px;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.send-message-button:hover {
   opacity: 0.7;
 }
 
-button.send-message-button {
-  font-size: 16px;
-  border: none;
-  background-color: #0F1409;
-  height: 40px;
-  display: flex;
-  align-items: center;
-}
-
-svg.send-icon {
+.send-icon {
   color: white;
 }
 

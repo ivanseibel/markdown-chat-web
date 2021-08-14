@@ -55,16 +55,14 @@ export function Room() {
           <h3>Room: {signedRoom}</h3>
         </div>
         <div className="leave-room-div">
-          <div className="leave-room-button-container">
-            <button
-              type="button"
-              id="chat-connect"
-              onClick={handleConnect}
-              className="leave-room-button"
-            >
-              <FiLogOut className="logout-icon" size={20} />
-            </button>
-          </div>
+          <button
+            type="button"
+            id="chat-connect"
+            onClick={handleConnect}
+            className="leave-room-button"
+          >
+            <FiLogOut className="logout-icon" size={20} />
+          </button>
         </div>
       </div>
       <div className="message-container">
@@ -117,23 +115,21 @@ export function Room() {
           />
         </div>
         <div className="chat-room-send-button-container">
-          <div className="send-message-button-container" >
-            <button
-              type="button"
-              value=""
-              id="chat-message-submit"
-              title="Press Ctrl+Enter to send"
-              onClick={() => {
-                handleSendMessage(message);
-                setMessage('');
-                messageInputRef.current.focus();
-              }}
-              disabled={!isConnected}
-              className="send-message-button"
-            >
-              <FiSend className="send-icon" size={20} />
-            </button>
-          </div>
+          <button
+            type="button"
+            value=""
+            id="chat-message-submit"
+            title="Press Ctrl+Enter to send"
+            onClick={() => {
+              handleSendMessage(message);
+              setMessage('');
+              messageInputRef.current.focus();
+            }}
+            disabled={!isConnected}
+            className="send-message-button"
+          >
+            <FiSend className="send-icon" size={20} />
+          </button>
         </div>
       </div>
     </div>
