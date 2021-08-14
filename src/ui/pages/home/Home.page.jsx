@@ -1,6 +1,7 @@
-import React, { useState, useCallback, useContext } from 'react';
 import { RoomContext } from '../../../context';
+import React, { useState, useCallback, useContext } from 'react';
 import { FiLogIn } from 'react-icons/fi';
+import logo from '../../../static/logo.png';
 
 import './styles.css';
 
@@ -27,7 +28,8 @@ export function Home() {
   return (
     <div className="main">
       <div>
-        <h1 className="login-title">Markdown Chat</h1>
+        {/* <h1 className="login-title">Markdown Chat</h1> */}
+        <img src={logo} alt="" />
         <input
           onChange={handleOnChange}
           value={username}
