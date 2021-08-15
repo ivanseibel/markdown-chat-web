@@ -27,7 +27,7 @@ export function Home() {
 
   return (
     <div className="main">
-      <div>
+      <form onSubmit={(e) => { e.preventDefault() }} >
         <img src={logo} alt="logo" className="logo-home" />
         <input
           onChange={handleOnChange}
@@ -51,7 +51,7 @@ export function Home() {
           className="fields"
         />
         <button
-          type="button"
+          type="submit"
           value=""
           id="chat-connect"
           onClick={() => { handleConnect(username, room) }}
@@ -61,7 +61,7 @@ export function Home() {
           <span>Enter Room</span>
           <FiLogIn className="logout-icon" size={20} />
         </button>
-      </div>
+      </form>
 
     </div>
   );

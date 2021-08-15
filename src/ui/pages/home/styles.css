@@ -6,7 +6,7 @@
   background-color: #E5EEDA;
 }
 
-.main div {
+.main form {
   height: auto;
   display: flex;
   flex-direction: column;
@@ -45,6 +45,7 @@
   transition: 0.3s;
   height: 50px;
   margin-top: 50px;
+  border: none;
 }
 
 .enter-room-button:hover {
