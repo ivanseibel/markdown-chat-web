@@ -84,13 +84,14 @@ export function Room() {
               const messageItemClass = item.username === signedUser ? "message-item right" : "message-item";
               const messageBoxClass = item.username === signedUser ? "message-box me" : "message-box";
               const emojiSupport = item.message.replace(/:\w+:/gi, name => emoji.getUnicode(name));
+              console.log(emojiSupport, item.message)
 
               return (
                 <li className={messageItemClass} key={index.toString()}>
                   <strong>{item.username}</strong>
                   <div className={messageBoxClass}>
                     <ReactMarkdown className="markdown-container">
-                      {emojiSupport}
+                      {emojiSupport !== 'undefined' ? emojiSupport : item.message || ''}
                     </ReactMarkdown>
                     <p className="message-time">{item.time}</p>
                   </div>
