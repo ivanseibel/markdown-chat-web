@@ -17,6 +17,8 @@ div.chat-room-header-container {
 
 div.signed-room-div {
   display: flex;
+  justify-content: center;
+  flex-direction: column;
   flex: 1;
 }
 
@@ -236,4 +238,9 @@ img {
   .message-box {
     max-width: 100%;
   } 
+}
+
+.logo-room {
+  width: 100px;
+  margin-bottom: 10px;
 }

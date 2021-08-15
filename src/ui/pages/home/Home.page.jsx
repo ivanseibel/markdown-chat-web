@@ -28,7 +28,7 @@ export function Home() {
   return (
     <div className="main">
       <div>
-        <img src={logo} alt="logo" className="logo" />
+        <img src={logo} alt="logo" className="logo-home" />
         <input
           onChange={handleOnChange}
           value={username}

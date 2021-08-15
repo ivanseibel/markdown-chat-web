@@ -4,6 +4,7 @@ import { FiLogOut, FiSend, FiMenu } from 'react-icons/fi';
 import emoji from 'emoji-dictionary';
 
 import { RoomContext } from '../../../context';
+import logo from '../../../static/logo.png';
 
 import './styles.css';
 
@@ -52,6 +53,7 @@ export function Room() {
     <div className="chat-room-container">
       <div className="chat-room-header-container">
         <div className="signed-room-div">
+          <img src={logo} alt="logo" className="logo-room" />
           <h3>Room: {signedRoom}</h3>
         </div>
         <div className="leave-room-div">
@@ -84,7 +86,6 @@ export function Room() {
               const messageItemClass = item.username === signedUser ? "message-item right" : "message-item";
               const messageBoxClass = item.username === signedUser ? "message-box me" : "message-box";
               const emojiSupport = item.message.replace(/:\w+:/gi, name => emoji.getUnicode(name));
-              console.log(emojiSupport, item.message)
 
               return (
                 <li className={messageItemClass} key={index.toString()}>
