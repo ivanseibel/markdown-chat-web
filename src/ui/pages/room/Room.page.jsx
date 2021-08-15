@@ -84,7 +84,6 @@ export function Room() {
               const messageItemClass = item.username === signedUser ? "message-item right" : "message-item";
               const messageBoxClass = item.username === signedUser ? "message-box me" : "message-box";
               const emojiSupport = item.message.replace(/:\w+:/gi, name => emoji.getUnicode(name));
-              console.log(emojiSupport);
 
               return (
                 <li className={messageItemClass} key={index.toString()}>
