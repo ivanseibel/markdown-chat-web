@@ -1,6 +1,7 @@
 import React, { useCallback, useState, useRef, useContext, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown'
 import { FiLogOut, FiSend, FiMenu } from 'react-icons/fi';
+import emoji from 'emoji-dictionary';
 
 import { RoomContext } from '../../../context';
 
@@ -82,14 +83,15 @@ export function Room() {
             {messageHistory.map((item, index) => {
               const messageItemClass = item.username === signedUser ? "message-item right" : "message-item";
               const messageBoxClass = item.username === signedUser ? "message-box me" : "message-box";
-              // const time = format(new Date(), 'MM/dd/yyyy HH:mm');
+              const emojiSupport = item.message.replace(/:\w+:/gi, name => emoji.getUnicode(name));
+              console.log(emojiSupport);
 
               return (
                 <li className={messageItemClass} key={index.toString()}>
                   <strong>{item.username}</strong>
                   <div className={messageBoxClass}>
                     <ReactMarkdown className="markdown-container">
-                      {item.message}
+                      {emojiSupport}
                     </ReactMarkdown>
                     <p className="message-time">{item.time}</p>
                   </div>
